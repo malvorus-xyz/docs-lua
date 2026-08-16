@@ -1,0 +1,26 @@
+# Summary
+
+[Introduction](README.md)
+[Script forwards & callbacks](forwards.md)
+[Examples](examples.md)
+
+# API reference
+
+- [Global functions](api/_root_.md)
+- [control](api/control.md)
+- [cvar](api/cvar.md)
+- [database](api/database.md)
+- [engine](api/engine.md)
+- [entities](api/entities.md)
+- [entity](api/entity.md)
+- [event](api/event.md)
+- [fs](api/fs.md)
+- [global_vars](api/global_vars.md)
+- [globals](api/globals.md)
+- [gui](api/gui.md)
+- [input](api/input.md)
+- [math](api/math.md)
+- [render](api/render.md)
+- [timer](api/timer.md)
+- [utils](api/utils.md)
+- [vec3](api/vec3.md)
