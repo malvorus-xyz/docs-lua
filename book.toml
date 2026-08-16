@@ -7,6 +7,5 @@ src = "docs"
 
 [output.html]
 git-repository-url = "https://github.com/malvorus-xyz/docs-lua"
-git-repository-icon = "fa-github"
 default-theme = "navy"
 preferred-dark-theme = "navy"
