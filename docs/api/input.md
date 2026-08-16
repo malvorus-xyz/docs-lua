@@ -29,10 +29,10 @@
 
 ## Reference
 
-| Call | Description | Source |
-| --- | --- | --- |
-| `input.get_cursor_pos(...)` | input.get_cursor_pos(): number, number | [InputGetCursorPos](https://github.com/malvorus-xyz/base/blob/master/base/scripts/api/input.cpp#L128) |
-| `input.is_key_down(...)` | input.is_key_down(key): bool | [InputIsKeyDown](https://github.com/malvorus-xyz/base/blob/master/base/scripts/api/input.cpp#L57) |
-| `input.is_key_pressed(...)` | input.is_key_pressed(key): bool | [InputIsKeyPressed](https://github.com/malvorus-xyz/base/blob/master/base/scripts/api/input.cpp#L74) |
-| `input.is_key_released(...)` | input.is_key_released(key): bool | [InputIsKeyReleased](https://github.com/malvorus-xyz/base/blob/master/base/scripts/api/input.cpp#L91) |
-| `input.is_mouse_down(...)` | input.is_mouse_down(button): bool | [InputIsMouseDown](https://github.com/malvorus-xyz/base/blob/master/base/scripts/api/input.cpp#L114) |
+| Call | Description |
+| --- | --- |
+| `input.get_cursor_pos(...)` | input.get_cursor_pos(): number, number |
+| `input.is_key_down(...)` | input.is_key_down(key): bool |
+| `input.is_key_pressed(...)` | input.is_key_pressed(key): bool |
+| `input.is_key_released(...)` | input.is_key_released(key): bool |
+| `input.is_mouse_down(...)` | input.is_mouse_down(button): bool |
