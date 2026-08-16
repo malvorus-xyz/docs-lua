@@ -1,19 +1,14 @@
 # docs-lua
 
-Generated GitBook-style reference for the `base` project's sandboxed luajit scripting api,
-built into a static site with [mdBook](https://rust-lang.github.io/mdBook/) and published to
-GitHub Pages by `.github/workflows/deploy.yml` on every push to `main`.
+Generated GitBook reference for the `base` project's sandboxed luajit scripting api.
 
-Content under `docs/` is generated — do not hand-edit it. Regenerate from the `base` repo:
+Published via [GitBook.com](https://gitbook.com) Git Sync from this repo's `docs/` directory
+(`.gitbook.yaml` points GitBook at it). Content under `docs/` is generated — do not hand-edit
+it. Regenerate from the `base` repo:
 
 ```text
 py scripts/generate_gitbook.py
 ```
 
-then copy `base/docs/` over this repo's `docs/` directory, commit, and push.
-
-Local preview (requires the [mdBook](https://github.com/rust-lang/mdBook) binary):
-
-```text
-mdbook serve
-```
+then copy `base/docs/` over this repo's `docs/` directory, commit, and push `main` — GitBook's
+Git Sync republishes automatically.
