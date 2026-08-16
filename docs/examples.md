@@ -5,22 +5,22 @@ scripts menu.
 
 ## Minimal skeleton
 
-Every forward is optional; define only what you use.
+Every forward is optional; subscribe to only what you use.
 
 ```lua
 --. name: example
 --. description: minimal skeleton
 --. author: you
 
-function on_tick()
+globals.register_callback("on_tick", function()
     -- runs every frame, before the draw pass
-end
+end)
 
-function on_paint()
+globals.register_callback("on_paint", function()
     -- runs every frame, render.* is only legal in here
     local w, h = render.get_screen_size()
     render.text(render.font_menu, 4, 4, "hello from lua", render.color(255, 255, 255))
-end
+end)
 ```
 
 ## Building a menu page
@@ -36,23 +36,23 @@ gui.button("reset", group, "Reset", function(control)
     size:set_value(5)
 end)
 
-function on_tick()
+globals.register_callback("on_tick", function()
     if not enabled:get_value() then
         return
     end
     -- ... use size:get_value() ...
-end
+end)
 ```
 
 ## globals.register_callback
 
-Stack any number of subscribers on a forward name, or on a raw game event name the fixed
-listener list in `EVENT::Setup()` never covered -- the listener starts tracking it lazily on
-first registration.
+Every forward is subscribed to by name -- stack any number of independent callbacks on the same
+name, or on a raw game event name the fixed listener list in `EVENT::Setup()` never covered; the
+listener starts tracking it lazily on first registration.
 
 ```lua
 globals.register_callback("on_tick", function()
-    -- a second on_tick subscriber, independent of the classic `function on_tick()` above
+    -- a second, independent on_tick subscriber
 end)
 
 globals.register_callback("bomb_planted", function(event)
@@ -63,7 +63,7 @@ end)
 ## Drawing on players (esp-style loop)
 
 ```lua
-function on_paint()
+globals.register_callback("on_paint", function()
     local me = engine.get_local_player()
     if me == nil or not me:is_alive() then
         return
@@ -80,7 +80,7 @@ function on_paint()
             render.text(render.font_menu, x, y, "enemy", render.color(255, 64, 64), render.text_dropshadow)
         end
     end)
-end
+end)
 ```
 
 ## Timers and persistence
@@ -93,15 +93,15 @@ utils.new_timer(1000, function()
     database.save("counter", counter)
 end):start()
 
-function on_shutdown()
+globals.register_callback("on_shutdown", function()
     fs.write("last_run.txt", utils.get_date())
-end
+end)
 ```
 
 ## Reading a convar
 
 ```lua
-function on_tick()
+globals.register_callback("on_tick", function()
     local sensitivity = cvar["sensitivity"]:get_float()
-end
+end)
 ```

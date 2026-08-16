@@ -1,24 +1,23 @@
 # Script forwards & callbacks
 
-A script participates in the frame/event pump two ways: define one of the global functions
-below directly, or subscribe any function to a name with `globals.register_callback`. Both
-fire for the same dispatch — a script may stack any number of `register_callback`
-subscribers next to, or instead of, the classic global-function forward.
+A script subscribes to a forward by name with `globals.register_callback` -- any number of
+independent callbacks may stack on the same name, and every subscriber fires in
+registration order.
 
 ## Forwards
 
 | Name | Fires when |
 | --- | --- |
-| `function on_tick(...)` | per-frame, before the draw pass |
-| `function on_paint(...)` | per-frame draw pass, render.* is legal here |
-| `function on_menu_toggle(...)` | menu visibility changed, receives the new state |
-| `function on_game_event(...)` | game event fired, receives a csgo.event |
-| `function on_player_created(...)` | player entity created/destroyed, receives a csgo.entity |
-| `function on_player_deleted(...)` | player entity created/destroyed, receives a csgo.entity |
-| `function on_config_load(...)` | configuration profile has been read/written |
-| `function on_config_save(...)` | configuration profile has been read/written |
-| `function on_log(...)` | log line has been emitted, receives (text, level) |
-| `function on_shutdown(...)` | script is about to be unloaded |
+| `"on_tick"` | per-frame, before the draw pass |
+| `"on_paint"` | per-frame draw pass, render.* is legal here |
+| `"on_menu_toggle"` | menu visibility changed, receives the new state |
+| `"on_game_event"` | game event fired, receives a csgo.event |
+| `"on_player_created"` | player entity created/destroyed, receives a csgo.entity |
+| `"on_player_deleted"` | player entity created/destroyed, receives a csgo.entity |
+| `"on_config_load"` | configuration profile has been read/written |
+| `"on_config_save"` | configuration profile has been read/written |
+| `"on_log"` | log line has been emitted, receives (text, level) |
+| `"on_shutdown"` | script is about to be unloaded |
 
 ## globals.register_callback
 
